@@ -96,3 +96,4 @@ services:
       DATABASE_URL: postgres://sales:password@database:5432/sales
       WAIT_HOSTS: database:5432,sales-api:8000
       WAIT_TIMEOUT: 240
+      INVENTORY_API: http://inventory-api:8000
