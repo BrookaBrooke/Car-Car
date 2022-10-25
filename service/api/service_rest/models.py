@@ -9,10 +9,16 @@ class VehicleVO(models.Model):
     name = models.CharField(max_length=100)
     manufacturer = models.CharField(max_length=100, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Technician(models.Model):
     name = models.CharField(max_length=200)
     employee_num = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return self.name
 
 
 class Appointment(models.Model):
@@ -27,3 +33,5 @@ class Appointment(models.Model):
       on_delete=models.CASCADE)
 
 
+    def __str__(self):
+        return self.technician + "helped" + self.owner
