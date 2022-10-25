@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from common.json import ModelEncoder
-from django.views.decorators import requirehttpmethods
+from django.views.decorators.http import require_http_methods
 import json
 from django.http import JsonResponse
-from .models import VehicleVO, Appointment
+from .models import VehicleVO, Appointment, Technician
+from django.db import IntegrityError
 # Create your views here.
 
 
@@ -15,6 +16,13 @@ class VehicleVOEncoder(ModelEncoder):
         "vin",
         "name",
         "manufacturer",
+    ]
+
+class TechnicianEncoder(ModelEncoder):
+    model = Technician
+    properties = [
+        "name",
+        "employee_num",
     ]
 
 class AppointmentEncoder(ModelEncoder):
@@ -34,36 +42,35 @@ class AppointmentEncoder(ModelEncoder):
     }
 
 
-@requirehttpmethods(["GET", "POST"])
+@require_http_methods(["GET", "POST"])
 def api_list_services(request):
     if request.method == "GET":
         appointment = Appointment.objects.all()
         return JsonResponse(
-            appointment,
+            {"appointment": appointment},
             encoder = AppointmentEncoder,
             safe=False,
         )
     else:
-        content = json.loads(request.body)
         try:
-            href = content["vehicle"]
-            vehicle = VehicleVO.objects.get(import_href=href)
-            content["vehicle"] = vehicle
-        except VehicleVOEncoder.DoesNotExist:
+
+            content = json.loads(request.body)
+            appointment = Appointment.objects.create(**content)
             return JsonResponse(
-                {"message": "Invalid Vehicle"},
+                {"appointment":appointment},
+                encoder = AppointmentEncoder,
+                safe=False,
+            )
+        except IntegrityError:
+            return JsonResponse(
+                {"message": "Invalid Appointment"},
                 status=400,
             )
-        appointment = Appointment.objects.create(**content)
-        return JsonResponse(
-            appointment,
-            encoder = AppointmentEncoder,
-            safe=False,
-        )
 
 
-@requirehttpmethods(["DELETE"])
+@require_http_methods(["DELETE"])
 def api_delete_hats(request, pk):
     if request.method == "DELETE":
         count, _ = Appointment.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
+
