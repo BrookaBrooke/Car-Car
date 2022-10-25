@@ -38,7 +38,7 @@ class AppointmentEncoder(ModelEncoder):
 
     ]
     encoders = {
-        "vin": VehicleVOEncoder(),
+        "technician": TechnicianEncoder(),
     }
 
 

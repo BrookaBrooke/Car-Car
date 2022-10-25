@@ -33,5 +33,5 @@ class Appointment(models.Model):
       on_delete=models.CASCADE)
 
 
-    def __str__(self):
-        return self.technician + "helped" + self.owner
+    #def __str__(self):
+    #    return self.technician + "helped" + self.owner
