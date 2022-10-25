@@ -11,7 +11,7 @@ class VehicleVO(models.Model):
 
 
 class Technician(models.Model):
-    name = models.CharField(max=200)
+    name = models.CharField(max_length=200)
     employee_num = models.PositiveSmallIntegerField()
 
 

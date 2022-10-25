@@ -24,6 +24,8 @@ class AppointmentEncoder():
         "owner",
         "scheduled_time",
         "vip",
+        "is_completed",
+        "technician",
 
     ]
 
