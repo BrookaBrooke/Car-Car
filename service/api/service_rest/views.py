@@ -33,25 +33,37 @@ class AppointmentEncoder(ModelEncoder):
         "vin": VehicleVOEncoder(),
     }
 
-class AppointmentDetailEncoder(ModelEncoder):
-    model = Appointment
-    properties = [
-        "vin",
-        "owner",
-        "scheduled_time",
-        "reason",
-        "vip",
-        "is_completed",
-        "technician",
-    ]
-    encoders = {
-        "vin": VehicleVOEncoder(),
-    }
 
 @requirehttpmethods(["GET", "POST"])
 def api_list_services(request):
-    pass
+    if request.method == "GET":
+        appointment = Appointment.objects.all()
+        return JsonResponse(
+            appointment,
+            encoder = AppointmentEncoder,
+            safe=False,
+        )
+    else:
+        content = json.loads(request.body)
+        try:
+            href = content["vehicle"]
+            vehicle = VehicleVO.objects.get(import_href=href)
+            content["vehicle"] = vehicle
+        except VehicleVOEncoder.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid Vehicle"},
+                status=400,
+            )
+        appointment = Appointment.objects.create(**content)
+        return JsonResponse(
+            appointment,
+            encoder = AppointmentEncoder,
+            safe=False,
+        )
+
 
 @requirehttpmethods(["DELETE"])
 def api_delete_hats(request, pk):
-    pass
+    if request.method == "DELETE":
+        count, _ = Appointment.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
