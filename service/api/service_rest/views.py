@@ -48,3 +48,10 @@ class AppointmentDetailEncoder(ModelEncoder):
         "vin": VehicleVOEncoder(),
     }
 
+@requirehttpmethods(["GET", "POST"])
+def api_list_services(request):
+    pass
+
+@requirehttpmethods(["DELETE"])
+def api_delete_hats(request, pk):
+    pass
