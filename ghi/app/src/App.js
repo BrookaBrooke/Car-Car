@@ -4,7 +4,7 @@ import Nav from './Nav';
 import AddCustomer from './AutomobileSales/AddCustomer';
 import AddSalesPerson from './AutomobileSales/AddSalesPerson';
 import AddAutomobileSale from './AutomobileSales/AddAutomobileSale';
-
+import AddTechnician from './AutomobileService/AddTechnician';
 
 function App() {
   return (
@@ -22,7 +22,9 @@ function App() {
           <Route path="/customers">
             <Route path="new" element={<AddCustomer/>} />
           </Route>
-
+          <Route path="/technician">
+            <Route path="new" element={<AddTechnician/>} />
+          </Route>
 
         </Routes>
       </div>
