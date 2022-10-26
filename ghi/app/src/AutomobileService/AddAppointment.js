@@ -32,18 +32,7 @@ class AddAppointment extends React.Component {
         };
         const response = await fetch(appointmentURL, fetchConfig);
         if (response.ok) {
-
-            // const appointmentURL = `http://localhost:8080/api/appointment/${this.state.appointment}/`
-            // const autoFetchConfig ={
-            //     method: "PUT",
-            //     headers: {'Content-Type': 'application/json'},
-            //     body: JSON.stringify({sold: true})
-            // }
-            // const autoResponse = await fetch(appointmentURL, autoFetchConfig)
-            // if (!autoResponse.ok) {
-            //     console.error(autoResponse);
-            // }
-        //}
+        }
         const cleared = {
             vin: '',
             owner: '',
