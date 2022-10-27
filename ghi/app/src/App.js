@@ -5,6 +5,7 @@ import AddCustomer from './AutomobileSales/AddCustomer';
 import AddSalesPerson from './AutomobileSales/AddSalesPerson';
 import AddAutomobileSale from './AutomobileSales/AddAutomobileSale';
 import AddTechnician from './AutomobileService/AddTechnician';
+import AddAppointment from './AutomobileService/AddAppointment';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/technician">
             <Route path="new" element={<AddTechnician/>} />
+          </Route>
+          <Route path="/appointment">
+            <Route path="new" element={<AddAppointment/>} />
           </Route>
 
         </Routes>

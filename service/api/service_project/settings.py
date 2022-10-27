@@ -30,6 +30,7 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "service_rest.apps.ServiceRestConfig",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+CRONJOBS = [
+    ("* * * * * ", "sales.poll.poll"),
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000", "http://localhost:8100,", "http://localhost:8080", "http://localhost:8000",
+]
+
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
