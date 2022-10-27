@@ -19,13 +19,16 @@ def poll():
             url = f"{INVENTORY_API}/api/automobiles/"
             response = requests.get(url)
             content = json.loads(response.content)
-            for automobile in content ["autos"]:
+            print("content", content)
+            for automobile in content["autos"]:
                 AutomobileVO.objects.update_or_create(
+                    vin = automobile["vin"],
                     defaults={
                         "vin": automobile["vin"],
                         "sold": automobile["sold"]
                     },
                 )
+
         except Exception as e:
             print(e, file=sys.stderr)
         time.sleep(30)

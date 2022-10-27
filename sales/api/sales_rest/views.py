@@ -84,7 +84,7 @@ def api_list_salespeople(request):
             )
         except IntegrityError:
             return JsonResponse(
-                {"message": "Employee number already exists"},
+                {"message": "Employee # already exists"},
                 status=400,
             )
 
@@ -130,6 +130,7 @@ def api_list_automobilesales(request):
         )
     else:
         content = json.loads(request.body)
+        print("content", content)
         try:
             automobile = AutomobileVO.objects.get(vin=content["automobile"])
             content["automobile"] = automobile
@@ -140,7 +141,7 @@ def api_list_automobilesales(request):
             )
         try:
             salesperson = content["sales_person"]
-            content["sales_person"] = SalesPerson.objects.get(sales_person=salesperson)
+            content["sales_person"] = SalesPerson.objects.get(id=salesperson)
 
         except SalesPerson.DoesNotExist:
             return JsonResponse(
@@ -148,7 +149,7 @@ def api_list_automobilesales(request):
                 status = 400,
             )
         try:
-            customer = Customer.objects.get(customer_name=content["customer"])
+            customer = Customer.objects.get(id=content["customer"])
             content["customer"] = customer
         except Customer.DoesNotExist:
             return JsonResponse(

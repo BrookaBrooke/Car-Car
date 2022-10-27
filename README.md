@@ -2,8 +2,8 @@
 
 Team:
 
-* Josh - Auto Sales
-* Brooke - Auto Services
+* Josh - Automobile Sales
+* Brooke - Automobile Services
 
 ## Design
 
