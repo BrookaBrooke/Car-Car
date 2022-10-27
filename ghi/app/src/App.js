@@ -8,7 +8,6 @@ import AddSalesPerson from './AutomobileSales/AddSalesPerson';
 import AddAutomobileSale from './AutomobileSales/AddAutomobileSale';
 import ListOfManufacturers from './Inventory/ListOfManufacturers';
 import AddManufacturer from './Inventory/AddManufacturer';
-
 import AddTechnician from './AutomobileService/AddTechnician';
 import AddAppointment from './AutomobileService/AddAppointment';
 
