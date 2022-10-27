@@ -10,6 +10,8 @@ import ListOfManufacturers from './Inventory/ListOfManufacturers';
 import AddManufacturer from './Inventory/AddManufacturer';
 import AddTechnician from './AutomobileService/AddTechnician';
 import AddAppointment from './AutomobileService/AddAppointment';
+import ListAppointments from './AutomobileService/ListAppointments';
+import ServiceHistory from './AutomobileService/ServiceHistory';
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
           </Route>
           <Route path="/appointment">
             <Route path="new" element={<AddAppointment/>} />
+            <Route path="list" element={<ListAppointments/>}/>
+            <Route path="history" element={<ServiceHistory/>}/>
           </Route>
 
         </Routes>
