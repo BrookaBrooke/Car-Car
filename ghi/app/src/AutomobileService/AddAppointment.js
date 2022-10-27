@@ -8,7 +8,8 @@ class AddAppointment extends React.Component {
             owner: '',
             scheduled_time: '',
             reason: '',
-            technician: [],
+            technicians: [],
+            technician: '',
         };
         this.handleAddVin = this.handleAddVin.bind(this);
         this.handleAddOwner = this.handleAddOwner.bind(this);
@@ -38,6 +39,7 @@ class AddAppointment extends React.Component {
             owner: '',
             scheduled_time:'',
             reason: '',
+            technicians: [],
             technician: '',
         }
         this.setState(cleared);
@@ -76,7 +78,7 @@ class AddAppointment extends React.Component {
 
             this.setState({
 
-                technicians: technicianData.technicians
+                technicians: technicianData.technician
             });
         }
     }
@@ -104,11 +106,17 @@ class AddAppointment extends React.Component {
                             <label htmlFor="reason">Reason</label>
                         </div>
                         <div className="mb-3">
-                            <select onChange={this.handleAddTechnician} required id="technician"
-                            className="form-select" name="technician" value={this.state.technician}>
-                                <option value="">Choose Technician</option>
-
-                            </select>
+                        <select onChange={this.handleAddTechnician} required id="technician"
+                        className="form-select" name="technician" value={this.state.technician}>
+                    <option value="">Choose Technician</option>
+                        {this.state.technicians.map(technician => {
+                            return (
+                                <option key={technician.employee_num} value={technician.id}>
+                                    {technician.name}
+                                </option>
+                                );
+                        })}
+                </select>
                         </div>
                         <button className="btn btn-primary">Create</button>
                     </form>

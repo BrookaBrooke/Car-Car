@@ -18,12 +18,14 @@ class VehicleVOEncoder(ModelEncoder):
         "manufacturer",
     ]
 
+
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = [
         "name",
         "employee_num",
     ]
+
 
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
@@ -48,7 +50,7 @@ def api_list_appointments(request):
         appointment = Appointment.objects.all()
         return JsonResponse(
             {"appointment": appointment},
-            encoder = AppointmentEncoder,
+            encoder=AppointmentEncoder,
             safe=False,
         )
     else:
@@ -60,7 +62,8 @@ def api_list_appointments(request):
             content["vip"] = False
             if "technician" in content:
                 try:
-                    technician = Technician.objects.get(id=content["technician"])
+                    technician = Technician.objects.get(
+                        id=content["technician"])
                     content["technician"] = technician
                 except Technician.DoesNotExist:
                     return JsonResponse(
@@ -70,9 +73,10 @@ def api_list_appointments(request):
         appointment = Appointment.objects.create(**content)
         return JsonResponse(
             {"appointment": appointment},
-            encoder = AppointmentEncoder,
+            encoder=AppointmentEncoder,
             safe=False,
         )
+
 
 @require_http_methods(["GET", "PUT", "DELETE"])
 def api_get_appointment(request, pk):
@@ -95,13 +99,14 @@ def api_get_appointment(request, pk):
         count, _ = Appointment.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
 
-@require_http_methods(["GET","POST"])
+
+@require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
     if request.method == "GET":
         technician = Technician.objects.all()
         return JsonResponse(
-            {"technician":technician},
-            encoder = TechnicianEncoder,
+            {"technician": technician},
+            encoder=TechnicianEncoder,
             safe=False,
         )
     else:
@@ -109,20 +114,19 @@ def api_list_technicians(request):
             content = json.loads(request.body)
             technician = Technician.objects.create(**content)
             return JsonResponse(
-                {"technician":technician},
-                encoder = TechnicianEncoder,
-                safe = False,
+                {"technician": technician},
+                encoder=TechnicianEncoder,
+                safe=False,
             )
         except IntegrityError:
             return JsonResponse(
                 {"message": "Invalid Technician"},
-                status = 400,
+                status=400,
             )
-
 
 
 @require_http_methods(["DELETE"])
 def api_delete_technicians(request, pk):
     if request.method == "DELETE":
-        count, _ = Technician.objects.filter(id=pk),delete()
+        count, _ = Technician.objects.filter(id=pk), delete()
         return JsonResponse({"deleted": count > 0})
