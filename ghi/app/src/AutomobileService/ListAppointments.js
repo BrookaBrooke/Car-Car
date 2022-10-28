@@ -34,7 +34,7 @@ class ListAppointments extends React.Component{
                     <tr>
                         <th>Technician</th>
                         <th>Owner</th>
-                        <th>VIN</th>
+                        <th>VIN #</th>
                         <th>Scheduled Time</th>
                         <th>Reason</th>
                     </tr>

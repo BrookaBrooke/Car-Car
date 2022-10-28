@@ -62,16 +62,16 @@ import React, { useState, useEffect } from 'react';
 
     render(){
         return (
-            <div className='container'>
-                <p></p>
+            <div className='row'>
+                <div className="offset-1 col-10">
                 <h1>Service History</h1>
                 <div className='form-floating mb-3'>
-                    <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
-                <button type="submit" >Search VIN #</button>
+                    <form className ="input-group" onSubmit={this.handleSubmit}>
+                <input className="form-control" type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
+                <button className="btn btn-dark input-group-append" >Search VIN #</button>
             </form>
                 <div>
-                    <table>
+                    <table className="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>VIN #</th>
@@ -97,6 +97,7 @@ import React, { useState, useEffect } from 'react';
                     </table>
                 </div>
                 </div>
+            </div>
             </div>
 
         );
