@@ -71,7 +71,7 @@ class ListOfSalesByEmployee extends React.Component {
               })}
             </select>
           </div>
-          <table className="table table-striped">
+          <table className="table table-striped table-hover">
             <thead>
               <tr>
                 <th>Sales Person</th>
