@@ -91,19 +91,19 @@ class AddAppointment extends React.Component {
                     <h1>Create a new Appointment</h1>
                     <form onSubmit={this.handleSubmit} id="create-appointment-form">
                         <div className="form-floating mb-3">
-                            <input onChange={this.handleAddVin} value={this.state.vin} placeholder="Vin" name="vin" id="vin" className="form-control"/>
+                            <input onChange={this.handleAddVin} value={this.state.vin} placeholder="VIN" name="vin" id="vin" className="form-control"/>
                             <label htmlFor="vin">VIN #</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={this.handleAddOwner} value={this.state.owner} required id="owner" className="form-control" name="owner"></input>
+                            <input onChange={this.handleAddOwner} value={this.state.owner} placeholder="owner" required id="owner" className="form-control" name="owner"></input>
                             <label htmlFor="owner">Owner</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={this.handleAddTime} value={this.state.scheduled_time} required id="time" className="form-control" name="time"></input>
+                            <input onChange={this.handleAddTime} value={this.state.scheduled_time} placeholder="time" required id="time" className="form-control" name="time"></input>
                             <label htmlFor="scheduled_time">Time</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={this.handleAddReason} value={this.state.reason} required id="reason" className="form-control" name="reason"></input>
+                            <input onChange={this.handleAddReason} value={this.state.reason} placeholder="reason" required id="reason" className="form-control" name="reason"></input>
                             <label htmlFor="reason">Reason</label>
                         </div>
                         <div className="form-floating mb-3">

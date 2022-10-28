@@ -64,21 +64,21 @@ import React, { useState, useEffect } from 'react';
         return (
             <div className='container'>
                 <p></p>
-                <h2>Service History</h2>
-                <div className='mb-3'>
+                <h1>Service History</h1>
+                <div className='form-floating mb-3'>
                     <form onSubmit={this.handleSubmit}>
                 <input type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
-                <button type="submit" >Submit</button>
+                <button type="submit" >Search VIN #</button>
             </form>
                 <div>
                     <table>
                         <thead>
                             <tr>
-                                <th>VIN</th>
-                                <th>owner</th>
-                                <th>technician</th>
-                                <th>reason</th>
-                                <th>time</th>
+                                <th>VIN #</th>
+                                <th>Owner</th>
+                                <th>Technician</th>
+                                <th>Reason</th>
+                                <th>Time</th>
                             </tr>
                         </thead>
                         <tbody>
