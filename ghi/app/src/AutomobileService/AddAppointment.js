@@ -94,19 +94,19 @@ class AddAppointment extends React.Component {
                             <input onChange={this.handleAddVin} value={this.state.vin} placeholder="Vin" name="vin" id="vin" className="form-control"/>
                             <label htmlFor="vin">VIN #</label>
                         </div>
-                        <div className="mb-3">
+                        <div className="form-floating mb-3">
                             <input onChange={this.handleAddOwner} value={this.state.owner} required id="owner" className="form-control" name="owner"></input>
                             <label htmlFor="owner">Owner</label>
                         </div>
-                        <div className="mb-3">
+                        <div className="form-floating mb-3">
                             <input onChange={this.handleAddTime} value={this.state.scheduled_time} required id="time" className="form-control" name="time"></input>
                             <label htmlFor="scheduled_time">Time</label>
                         </div>
-                        <div className="mb-3">
+                        <div className="form-floating mb-3">
                             <input onChange={this.handleAddReason} value={this.state.reason} required id="reason" className="form-control" name="reason"></input>
                             <label htmlFor="reason">Reason</label>
                         </div>
-                        <div className="mb-3">
+                        <div className="form-floating mb-3">
                         <select onChange={this.handleAddTechnician} required id="technician"
                         className="form-select" name="technician" value={this.state.technician}>
                     <option value="">Choose Technician</option>
