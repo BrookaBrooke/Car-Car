@@ -13,12 +13,7 @@ import React, { useState, useEffect } from 'react';
         this.filterAppointments = this.filterAppointments.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
 
-        // const filterVin = e => {
-        //     const search = e.target.value()
-        //     const filteredVin = appointment.filter(vin => appointment.vin().includes(search))
-        //     setVin(filteredVin)
-        //     return filterVin
-        // }
+
     }
     filterAppointments(e) {
 
@@ -64,9 +59,6 @@ import React, { useState, useEffect } from 'react';
 
         }
     }
-//<input type="text" appointment={this.state.appointmentFilters} match={this.props.match} onChange={this.filterAppointments}></input>
-
-
 
     render(){
         return (
