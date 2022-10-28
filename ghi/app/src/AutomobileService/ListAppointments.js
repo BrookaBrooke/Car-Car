@@ -1,19 +1,30 @@
 import React from "react";
 
-function ListAppointments() {
-        const [data, setData] = React.useState([]);
+class ListAppointments extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            appointment: []
+        }
 
-        React.useEffect(() => {
-            const url = `http://localhost:8080.api/appointment`;
-            fetch(url)
-            .then((response) => response.json())
-            .then((json) => setData(json['appointment']))
-            .catch((error) => console.log(error));
-        } );
+    };
+    async componentDidMount(){
+        const appointmentURL = `http://localhost:8080/api/appointment/`
+        const appointmentResponse = await fetch(appointmentURL);
 
-        React.useEffect(() =>{
-        }, [data]);
+        if (appointmentResponse.ok){
+            const appointmentData = await appointmentResponse.json();
 
+            this.setState({
+                appointment: appointmentData.appointment
+            });
+        }
+    }
+
+
+
+
+    render() {
     return (
         <div>
             <p></p>
@@ -29,19 +40,20 @@ function ListAppointments() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map(appointment =>{
+                    {this.state.appointment.map(appointment =>{
                         return(
                             <tr key={appointment.id}>
                                 <td>{appointment.technician.name}</td>
                                 <td>{appointment.owner}</td>
                                 <td>{appointment.vin}</td>
+                                <td>{appointment.scheduled_time}</td>
                                 <td>{appointment.reason}</td>
                             </tr>
-                        )
+                        );
                     })}
                 </tbody>
             </table>
         </div>
-    )
-}
+    );
+}}
 export default ListAppointments;
