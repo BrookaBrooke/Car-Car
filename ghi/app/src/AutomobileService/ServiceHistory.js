@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 
@@ -62,23 +62,23 @@ import React, { useState, useEffect } from 'react';
 
     render(){
         return (
-            <div className='container'>
-                <p></p>
-                <h2>Service History</h2>
-                <div className='mb-3'>
-                    <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
-                <button type="submit" >Submit</button>
-            </form>
-                <div>
-                    <table>
+            <div className='row'>
+                <div className="offset-1 col-10">
+                    <div className="p-4 m-2">
+                        <form className ="input-group" onSubmit={this.handleSubmit}>
+                            <input className="form-control" type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
+                            <button className="btn btn-dark input-group-append" >Search VIN #</button>
+                        </form>
+                    <div>
+                <h1>Service History</h1>
+                    <table className="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>VIN</th>
-                                <th>owner</th>
-                                <th>technician</th>
-                                <th>reason</th>
-                                <th>time</th>
+                                <th>VIN #</th>
+                                <th>Owner</th>
+                                <th>Technician</th>
+                                <th>Reason</th>
+                                <th>Time</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -95,9 +95,10 @@ import React, { useState, useEffect } from 'react';
                             })}
                         </tbody>
                     </table>
-                </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
         );
     }

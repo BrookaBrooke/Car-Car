@@ -69,7 +69,7 @@ class AddSalesPerson extends React.Component {
             </form>
           </div>
           </div>
-        </div>
+         </div>
         );
     }
 }

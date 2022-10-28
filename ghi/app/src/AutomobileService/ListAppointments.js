@@ -28,13 +28,13 @@ class ListAppointments extends React.Component{
     return (
         <div>
             <p></p>
-            <h2>Appointment List</h2>
-            <table className="table table=striped table-hover">
+            <h1>Appointment List</h1>
+            <table className="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Technician</th>
                         <th>Owner</th>
-                        <th>VIN</th>
+                        <th>VIN #</th>
                         <th>Scheduled Time</th>
                         <th>Reason</th>
                     </tr>
