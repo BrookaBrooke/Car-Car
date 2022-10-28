@@ -2,8 +2,8 @@
 
 Team:
 
-* Josh - Automobile Sales
-* Brooke - Automobile Services
+- Josh - Automobile Sales
+- Brooke - Automobile Services
 
 ## Design
 
@@ -13,8 +13,8 @@ The Sales microservice has four models. An AutomobileVO which is using a poller 
 
 The views include a specific detail and list encoders for each model and also uses RESTFUL APIS to GET data from the list of sales, list of customers, as well as list of salespeople and the POST method to create future sales, customers, and salespeople.
 
-
 ## Services microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+The Services microservice has three models. First, there is an Appointment model, which works with the poller to poll the appointment data, and also exists to identify which information is needed to set up an auto-service appointment. It has a foreign key with the technician model so that it may allocate which employee has which appointment. Next, there is the technician model, which hold the name and employee number of the technician so that they may be easily identifiable, especially if two people have a same, common name, for example. Finally, there is the vehicleVO model, which communicates with the automobile model so that we may allocate which vehicle has which appointment.
+
+The views for this microservice have an encoder for each model, and an api for both the technician and appointment models.
