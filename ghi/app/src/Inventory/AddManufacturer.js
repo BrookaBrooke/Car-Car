@@ -44,7 +44,8 @@ class AddManufacturer extends React.Component {
         return (
     <div className="row">
         <div className="offset-3 col-6">
-            <h1>Create a manufacturer</h1>
+        <div className="shadow p-4 mt-4">
+            <h1>Create a Manufacturer</h1>
             <form onSubmit={this.handleSubmit} id="create-manufacturers-form">
               <div className="form-floating mb-3">
                 <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name" required type="text" name="name" id="name" className="form-control"/>
@@ -52,6 +53,7 @@ class AddManufacturer extends React.Component {
               </div>
               <button className="btn btn-primary">Create</button>
             </form>
+          </div>
           </div>
         </div>
         );
