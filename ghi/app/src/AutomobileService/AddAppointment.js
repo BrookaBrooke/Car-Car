@@ -100,7 +100,7 @@ class AddAppointment extends React.Component {
                         </div>
                         <div className="mb-3">
                             <input onChange={this.handleAddTime} value={this.state.scheduled_time} required id="time" className="form-control" name="time"></input>
-                            <label htmlFor="scheduled_time">time</label>
+                            <label htmlFor="scheduled_time">Time</label>
                         </div>
                         <div className="mb-3">
                             <input onChange={this.handleAddReason} value={this.state.reason} required id="reason" className="form-control" name="reason"></input>
