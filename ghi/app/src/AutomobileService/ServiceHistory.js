@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 
@@ -64,12 +64,12 @@ import React, { useState, useEffect } from 'react';
         return (
             <div className='row'>
                 <div className="offset-1 col-10">
-                <div className="p-4 m-2">
-                    <form className ="input-group" onSubmit={this.handleSubmit}>
-                <input className="form-control" type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
-                <button className="btn btn-dark input-group-append" >Search VIN #</button>
-            </form>
-                <div>
+                    <div className="p-4 m-2">
+                        <form className ="input-group" onSubmit={this.handleSubmit}>
+                            <input className="form-control" type="text" value={this.state.vin} onChange={this.filterAppointments}></input>
+                            <button className="btn btn-dark input-group-append" >Search VIN #</button>
+                        </form>
+                    <div>
                 <h1>Service History</h1>
                     <table className="table table-striped table-hover">
                         <thead>
@@ -95,10 +95,10 @@ import React, { useState, useEffect } from 'react';
                             })}
                         </tbody>
                     </table>
-                </div>
+                    </div>
                 </div>
             </div>
-            </div>
+        </div>
 
         );
     }
