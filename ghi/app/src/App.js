@@ -10,15 +10,12 @@ import ListOfManufacturers from './Inventory/ListOfManufacturers';
 import AddManufacturer from './Inventory/AddManufacturer';
 import AddTechnician from './AutomobileService/AddTechnician';
 import AddAppointment from './AutomobileService/AddAppointment';
-<<<<<<< HEAD
 import ListAppointments from './AutomobileService/ListAppointments';
 import ServiceHistory from './AutomobileService/ServiceHistory';
-=======
 import AddVehicleModel from './Inventory/AddVehicleModel';
 import ListOfAutomobiles from './Inventory/ListOfAutomobiles';
 import AddAutomobileToInventory from './Inventory/AddAutomobileToInventory';
 import ListOfVehicleModels from './Inventory/ListOfVehicleModels';
->>>>>>> main
 
 function App() {
   return (
