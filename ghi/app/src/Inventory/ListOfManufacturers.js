@@ -18,7 +18,7 @@ function ListOfManufacturers() {
     return (
         <div>
         <p></p>
-        <h2>Manufacturers</h2>
+        <h1>Manufacturers</h1>
         <table className="table">
             <thead>
                 <tr>
@@ -30,7 +30,7 @@ function ListOfManufacturers() {
                     return (
                         <tr key={manufacturers.id}>
                         <td>{ manufacturers.name }</td>
-                    </tr>
+                        </tr>
                     );
                 })}
             </tbody>

@@ -58,7 +58,7 @@ class ListOfSalesByEmployee extends React.Component {
       return (
         <div className="container">
             <p></p>
-          <h2>Sales History</h2>
+          <h1>Sales History</h1>
           <div className="mb-3">
             <select onChange={this.handleChange} value={this.state.salespeople} required name="salesPerson" id="salesPerson" className="form-select">
               <option value="">Choose a Sales Person</option>

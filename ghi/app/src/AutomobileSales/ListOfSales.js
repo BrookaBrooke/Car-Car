@@ -18,7 +18,7 @@ function ListOfSales() {
     return (
         <div>
             <p></p>
-        <h2>Automobile Sale History</h2>
+        <h1>Automobile Sale History</h1>
         <table className="table table-striped table-hover">
             <thead>
                 <tr>
