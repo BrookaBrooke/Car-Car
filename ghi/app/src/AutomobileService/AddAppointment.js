@@ -92,7 +92,7 @@ class AddAppointment extends React.Component {
                     <form onSubmit={this.handleSubmit} id="create-appointment-form">
                         <div className="form-floating mb-3">
                             <input onChange={this.handleAddVin} value={this.state.vin} placeholder="Vin" name="vin" id="vin" className="form-control"/>
-                            <label htmlFor="vin">VIN</label>
+                            <label htmlFor="vin">VIN #</label>
                         </div>
                         <div className="mb-3">
                             <input onChange={this.handleAddOwner} value={this.state.owner} required id="owner" className="form-control" name="owner"></input>
